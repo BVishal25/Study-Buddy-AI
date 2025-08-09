@@ -1,0 +1,268 @@
+{
+  "topics": [
+    {
+      "id": "python-numpy-pandas",
+      "name": "python-numpy-pandas",
+      "title": "Python for Data Science (NumPy & Pandas)",
+      "description": "Essential Python libraries for data manipulation and numerical computing.",
+      "content": {
+        "lessons": [
+          {
+            "id": "py-intro",
+            "title": "Python Refresher",
+            "content": "Python basics: types, control flow, functions, virtualenvs.",
+            "type": "article",
+            "estimatedTime": 20
+          },
+          {
+            "id": "numpy-basics",
+            "title": "NumPy Fundamentals",
+            "content": "Vectors, matrices, broadcasting, vectorized ops.",
+            "type": "article",
+            "estimatedTime": 30
+          },
+          {
+            "id": "pandas-basics",
+            "title": "Pandas for Dataframes",
+            "content": "Loading CSVs, groupby, joins, missing data handling.",
+            "type": "article",
+            "estimatedTime": 40
+          }
+        ],
+        "prerequisites": []
+      },
+      "difficulty": "beginner",
+      "estimatedTime": 90,
+      "category": "Foundation",
+      "tags": [
+        "python",
+        "numpy",
+        "pandas"
+      ],
+      "connections": [
+        "ml-basics"
+      ]
+    },
+    {
+      "id": "ml-basics-expanded",
+      "name": "ml-basics-expanded",
+      "title": "Machine Learning Fundamentals",
+      "description": "Supervised vs unsupervised learning, regressions, classification, evaluation metrics.",
+      "content": {
+        "lessons": [
+          {
+            "id": "ml-intro-expanded",
+            "title": "What is Machine Learning?",
+            "content": "Overview of ML, types, and workflows.",
+            "type": "article",
+            "estimatedTime": 25
+          },
+          {
+            "id": "ml-supervised",
+            "title": "Supervised Learning",
+            "content": "Regression, classification, train/test split, cross-validation.",
+            "type": "article",
+            "estimatedTime": 35
+          },
+          {
+            "id": "ml-model-eval",
+            "title": "Model Evaluation",
+            "content": "Precision, recall, ROC, AUC, confusion matrix.",
+            "type": "article",
+            "estimatedTime": 30
+          }
+        ],
+        "prerequisites": [
+          "python-numpy-pandas"
+        ]
+      },
+      "difficulty": "beginner",
+      "estimatedTime": 90,
+      "category": "Machine Learning",
+      "tags": [
+        "supervised",
+        "evaluation"
+      ],
+      "connections": [
+        "neural-networks"
+      ]
+    },
+    {
+      "id": "neural-networks-expanded",
+      "name": "neural-networks-expanded",
+      "title": "Neural Networks & Deep Learning",
+      "description": "Perceptrons, backpropagation, activation functions, optimization.",
+      "content": {
+        "lessons": [
+          {
+            "id": "nn-intro",
+            "title": "Perceptrons & Layers",
+            "content": "Basic neuron model, activation functions.",
+            "type": "article",
+            "estimatedTime": 20
+          },
+          {
+            "id": "nn-backprop",
+            "title": "Backpropagation & Optimization",
+            "content": "Gradient descent, SGD, Adam.",
+            "type": "article",
+            "estimatedTime": 40
+          },
+          {
+            "id": "nn-regularization",
+            "title": "Regularization & Generalization",
+            "content": "Dropout, weight decay, batchnorm.",
+            "type": "article",
+            "estimatedTime": 30
+          }
+        ],
+        "prerequisites": [
+          "ml-basics-expanded",
+          "python-numpy-pandas"
+        ]
+      },
+      "difficulty": "intermediate",
+      "estimatedTime": 90,
+      "category": "Deep Learning",
+      "tags": [
+        "backprop",
+        "optimization"
+      ],
+      "connections": [
+        "cnn-expanded",
+        "transformers-intro"
+      ]
+    },
+    {
+      "id": "cnn-expanded",
+      "name": "cnn-expanded",
+      "title": "Convolutional Neural Networks",
+      "description": "Convolutions, pooling, common architectures and vision tasks.",
+      "content": {
+        "lessons": [
+          {
+            "id": "cnn-intro",
+            "title": "Convolutions Explained",
+            "content": "Kernels, stride, padding, receptive field.",
+            "type": "article",
+            "estimatedTime": 25
+          },
+          {
+            "id": "cnn-architectures",
+            "title": "Classic CNN Architectures",
+            "content": "LeNet, AlexNet, VGG, ResNet overview.",
+            "type": "article",
+            "estimatedTime": 40
+          },
+          {
+            "id": "cnn-transfer",
+            "title": "Transfer Learning for Vision",
+            "content": "Fine-tuning pretrained models and practical tips.",
+            "type": "article",
+            "estimatedTime": 30
+          }
+        ],
+        "prerequisites": [
+          "neural-networks-expanded"
+        ]
+      },
+      "difficulty": "intermediate",
+      "estimatedTime": 95,
+      "category": "Deep Learning",
+      "tags": [
+        "vision",
+        "cnn"
+      ],
+      "connections": [
+        "nn-transfer"
+      ]
+    },
+    {
+      "id": "transformers-intro",
+      "name": "transformers-intro",
+      "title": "Transformers & Attention",
+      "description": "Self-attention, encoder-decoder, transformer basics, GPT overview.",
+      "content": {
+        "lessons": [
+          {
+            "id": "attn-mech",
+            "title": "Attention Mechanism",
+            "content": "Scaled dot-product attention and intuition.",
+            "type": "article",
+            "estimatedTime": 30
+          },
+          {
+            "id": "transformer-arch",
+            "title": "Transformer Architecture",
+            "content": "Layers, positional encoding, multi-head attention.",
+            "type": "article",
+            "estimatedTime": 40
+          },
+          {
+            "id": "transformer-usage",
+            "title": "Using Transformers",
+            "content": "Fine-tuning, prompt engineering, tokenizers.",
+            "type": "article",
+            "estimatedTime": 30
+          }
+        ],
+        "prerequisites": [
+          "neural-networks-expanded",
+          "ml-basics-expanded"
+        ]
+      },
+      "difficulty": "intermediate",
+      "estimatedTime": 100,
+      "category": "NLP",
+      "tags": [
+        "transformer",
+        "attention"
+      ],
+      "connections": [
+        "llm-fine-tuning"
+      ]
+    },
+    {
+      "id": "deployment-mft",
+      "name": "deployment-mft",
+      "title": "Model Deployment & MLOps",
+      "description": "Containers, APIs, monitoring, CI/CD for models.",
+      "content": {
+        "lessons": [
+          {
+            "id": "docker-ml",
+            "title": "Docker for ML",
+            "content": "Containerize models and dependencies.",
+            "type": "article",
+            "estimatedTime": 30
+          },
+          {
+            "id": "serving",
+            "title": "Model Serving",
+            "content": "REST vs gRPC, batching, latency considerations.",
+            "type": "article",
+            "estimatedTime": 35
+          },
+          {
+            "id": "monitoring",
+            "title": "Monitoring & Drift",
+            "content": "Data drift detection and model observability.",
+            "type": "article",
+            "estimatedTime": 40
+          }
+        ],
+        "prerequisites": [
+          "nn-transfer"
+        ]
+      },
+      "difficulty": "intermediate",
+      "estimatedTime": 105,
+      "category": "MLOps",
+      "tags": [
+        "deployment",
+        "monitoring"
+      ],
+      "connections": []
+    }
+  ]
+}

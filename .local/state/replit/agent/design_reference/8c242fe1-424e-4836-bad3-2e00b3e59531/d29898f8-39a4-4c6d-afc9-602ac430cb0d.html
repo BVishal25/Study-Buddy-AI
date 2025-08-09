@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super AI Learning Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#2563eb',
+                            600: '#1e40af',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a'
+                        },
+                        secondary: {
+                            500: '#059669',
+                            600: '#047857'
+                        }
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-inter antialiased">
+
+<!-- @COMPONENT: Navigation Header -->
+<nav class="bg-white border-b border-gray-200 px-4 py-3 fixed w-full top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-brain text-white text-sm"></i>
+                </div>
+                <span class="font-bold text-xl text-gray-900">SuperAI</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-6 ml-8">
+                <a href="#" class="text-primary-600 font-medium">Learn</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Practice</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Research</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900">Community</a>
+            </div>
+        </div>
+        
+        <div class="flex items-center space-x-4">
+            <div class="relative">
+                <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                <input type="text" placeholder="Search topics..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+            </div>
+            <button class="p-2 text-gray-600 hover:text-gray-900">
+                <i class="fas fa-bell"></i>
+            </button>
+            <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                <span class="text-primary-600 font-medium text-sm" data-bind="user.initials">JD</span>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- @END_COMPONENT: Navigation Header -->
+
+<!-- Main Container -->
+<div class="pt-16 flex min-h-screen">
+    
+    <!-- @COMPONENT: Sidebar Navigation -->
+    <aside class="w-64 bg-white border-r border-gray-200 fixed left-0 h-full overflow-y-auto">
+        <div class="p-6">
+            <!-- Progress Overview -->
+            <div class="mb-8">
+                <h3 class="text-sm font-medium text-gray-900 mb-3">Your Progress</h3>
+                <div class="bg-gray-100 rounded-full h-2 mb-2">
+                    <div class="bg-primary-500 h-2 rounded-full" style="width: 68%" data-bind="user.overallProgress"></div>
+                </div>
+                <div class="flex justify-between text-xs text-gray-600">
+                    <span data-bind="user.completedTopics">34 topics completed</span>
+                    <span data-bind="user.progressPercentage">68%</span>
+                </div>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="space-y-2">
+                <div>
+                    <h4 class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">Learning Hub</h4>
+                    <div class="space-y-1">
+                        <a href="#" class="flex items-center px-3 py-2 text-sm font-medium text-primary-600 bg-primary-50 rounded-md">
+                            <i class="fas fa-route mr-3 text-sm"></i>
+                            My Learning Path
+                        </a>
+                        <a href="#" class="flex items-center px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                            <i class="fas fa-project-diagram mr-3 text-sm"></i>
+                            Knowledge Graph
+                        </a>
+                        <a href="#" class="flex items-center px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                            <i class="fas fa-robot mr-3 text-sm"></i>
+                            AI Tutor
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <h4 class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">Practice Arena</h4>
+                    <div class="space-y-1">
+                        <a href="#" class="flex items-center px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                            <i class="fas fa-code mr-3 text-sm"></i>
+                            Sandbox
+                        </a>
+                        <a href="#" class="flex items-center px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                            <i class="fas fa-tasks mr-3 text-sm"></i>
+                            Projects
+                        </a>
+                        <a href="#" class="flex items-center px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                            <i class="fas fa-trophy mr-3 text-sm"></i>
+                            Challenges
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <h4 class="text-xs font-medium text-gray-500 uppercase tracking-wider mb-3">Research Hub</h4>
+                    <div class="space-y-1">
+                        <a href="#" class="flex items-center px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                            <i class="fas fa-newspaper mr-3 text-sm"></i>
+                            Trending Papers
+                        </a>
+                        <a href="#" class="flex items-center px-3 py-2 text-sm text-gray-600 hover:bg-gray-50 rounded-md">
+                            <i class="fas fa-lightbulb mr-3 text-sm"></i>
+                            Innovation Lab
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </aside>
+    <!-- @END_COMPONENT: Sidebar Navigation -->
+
+    <!-- Main Content Area -->
+    <main class="flex-1 ml-64 p-8">
+        
+        <!-- @COMPONENT: Welcome Header -->
+        <div class="mb-8">
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900" data-bind="welcomeMessage">Welcome back, John!</h1>
+                    <p class="text-gray-600 mt-2">Continue your AI learning journey. You're making great progress!</p>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <button class="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 flex items-center">
+                        <i class="fas fa-play mr-2"></i>
+                        Continue Learning
+                    </button>
+                    <button class="p-2 text-gray-600 hover:bg-gray-100 rounded-lg">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: Welcome Header -->
+
+        <!-- @COMPONENT: Learning Dashboard -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+            
+            <!-- Current Learning Path -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-xl font-bold text-gray-900">Your Learning Path</h2>
+                        <span class="text-sm text-gray-500">Updated 2 hours ago</span>
+                    </div>
+
+                    <!-- Current Topic -->
+                    <div class="bg-gradient-to-r from-primary-50 to-purple-50 rounded-lg p-6 mb-6">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-1">
+                                <div class="flex items-center mb-2">
+                                    <span class="bg-primary-500 text-white px-2 py-1 rounded text-xs font-medium">Current</span>
+                                    <span class="ml-2 text-sm text-gray-600">Chapter 3 of 8</span>
+                                </div>
+                                <h3 class="text-lg font-semibold text-gray-900 mb-2" data-bind="currentTopic.title">Neural Networks Fundamentals</h3>
+                                <p class="text-gray-600 text-sm mb-4" data-bind="currentTopic.description">Learn the basic building blocks of deep learning, including perceptrons, activation functions, and backpropagation.</p>
+                                
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <div class="flex items-center text-sm text-gray-600">
+                                            <i class="fas fa-clock mr-1"></i>
+                                            <span data-bind="currentTopic.estimatedTime">45 min</span>
+                                        </div>
+                                        <div class="flex items-center text-sm text-gray-600">
+                                            <i class="fas fa-signal mr-1"></i>
+                                            <span data-bind="currentTopic.difficulty">Intermediate</span>
+                                        </div>
+                                    </div>
+                                    <button class="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 text-sm font-medium">
+                                        Continue
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="ml-6">
+                                <!-- Neural network icon placeholder -->
+                                <div class="w-16 h-16 bg-primary-100 rounded-lg flex items-center justify-center">
+                                    <i class="fas fa-brain text-primary-500 text-xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Next Topics Preview -->
+                    <div>
+                        <h4 class="font-medium text-gray-900 mb-4">Up Next</h4>
+                        <!-- @MAP: nextTopics.map(topic => ( -->
+                        <div class="space-y-3">
+                            <div class="flex items-center p-4 border border-gray-100 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-layer-group text-gray-500"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="font-medium text-gray-900" data-bind="topic.title">Convolutional Neural Networks</h5>
+                                    <p class="text-sm text-gray-600" data-bind="topic.summary">Image recognition and computer vision fundamentals</p>
+                                </div>
+                                <div class="text-xs text-gray-500" data-bind="topic.estimatedTime">1.5 hrs</div>
+                            </div>
+                            
+                            <div class="flex items-center p-4 border border-gray-100 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-comments text-gray-500"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="font-medium text-gray-900" data-bind="topic.title">Natural Language Processing</h5>
+                                    <p class="text-sm text-gray-600" data-bind="topic.summary">Text analysis and language understanding</p>
+                                </div>
+                                <div class="text-xs text-gray-500" data-bind="topic.estimatedTime">2 hrs</div>
+                            </div>
+
+                            <div class="flex items-center p-4 border border-gray-100 rounded-lg hover:bg-gray-50 cursor-pointer">
+                                <div class="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-chart-line text-gray-500"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="font-medium text-gray-900" data-bind="topic.title">Reinforcement Learning</h5>
+                                    <p class="text-sm text-gray-600" data-bind="topic.summary">Decision making and game playing algorithms</p>
+                                </div>
+                                <div class="text-xs text-gray-500" data-bind="topic.estimatedTime">3 hrs</div>
+                            </div>
+                        </div>
+                        <!-- @END_MAP )) -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Content -->
+            <div class="space-y-6">
+                
+                <!-- AI Tutor Widget -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-gray-900">AI Tutor</h3>
+                        <div class="w-2 h-2 bg-secondary-500 rounded-full"></div>
+                    </div>
+                    
+                    <div class="space-y-3 mb-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-robot text-primary-500 text-sm"></i>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-3 flex-1">
+                                <p class="text-sm text-gray-700" data-mock="true">I notice you're working on neural networks. Would you like me to explain the concept of gradient descent in simpler terms?</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <input type="text" placeholder="Ask me anything about AI..." class="w-full px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm" data-implementation="Connect to AI chat API">
+                        <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-primary-500 hover:text-primary-600">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <h3 class="font-bold text-gray-900 mb-4">Your Progress</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-secondary-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-graduation-cap text-secondary-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900" data-bind="stats.completedLessons">34</p>
+                                    <p class="text-xs text-gray-600">Lessons Completed</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-secondary-600 font-medium">+5 this week</span>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-code text-purple-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900" data-bind="stats.projectsCompleted">12</p>
+                                    <p class="text-xs text-gray-600">Projects Built</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-purple-600 font-medium">+2 this week</span>
+                        </div>
+
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-trophy text-amber-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-medium text-gray-900" data-bind="stats.badgesEarned">8</p>
+                                    <p class="text-xs text-gray-600">Badges Earned</p>
+                                </div>
+                            </div>
+                            <span class="text-xs text-amber-600 font-medium">New!</span>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-gray-600">Learning Streak</span>
+                                <div class="flex items-center">
+                                    <i class="fas fa-fire text-orange-500 mr-1"></i>
+                                    <span class="font-medium text-gray-900" data-bind="stats.streak">12 days</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trending Papers -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="font-bold text-gray-900">Trending Papers</h3>
+                        <a href="#" class="text-sm text-primary-500 hover:text-primary-600">View all</a>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <!-- @MAP: trendingPapers.map(paper => ( -->
+                        <div class="border-l-4 border-primary-500 pl-4 py-2">
+                            <h4 class="font-medium text-gray-900 text-sm leading-5 mb-1" data-bind="paper.title" data-mock="true">Attention Is All You Need: Transformer Architecture</h4>
+                            <p class="text-xs text-gray-600 mb-2" data-bind="paper.authors" data-mock="true">Vaswani et al. • Google</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500" data-bind="paper.date" data-mock="true">3 days ago</span>
+                                <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded" data-bind="paper.readingTime" data-mock="true">5 min read</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border-l-4 border-secondary-500 pl-4 py-2">
+                            <h4 class="font-medium text-gray-900 text-sm leading-5 mb-1" data-bind="paper.title" data-mock="true">GPT-4 Technical Report</h4>
+                            <p class="text-xs text-gray-600 mb-2" data-bind="paper.authors" data-mock="true">OpenAI Team</p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-gray-500" data-bind="paper.date" data-mock="true">1 week ago</span>
+                                <span class="text-xs bg-red-100 text-red-600 px-2 py-1 rounded" data-bind="paper.readingTime" data-mock="true">8 min read</span>
+                            </div>
+                        </div>
+                        <!-- @END_MAP )) -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- @END_COMPONENT: Learning Dashboard -->
+
+        <!-- @COMPONENT: Interactive Knowledge Graph Section -->
+        <div class="mb-8">
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <div class="flex items-center justify-between mb-6">
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-900">AI Knowledge Graph</h2>
+                        <p class="text-gray-600 text-sm">Visualize your learning progress and topic connections</p>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <button class="px-3 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50">
+                            <i class="fas fa-expand mr-2"></i>
+                            Full Screen
+                        </button>
+                        <button class="px-3 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50">
+                            <i class="fas fa-filter mr-2"></i>
+                            Filter
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Knowledge Graph Visualization -->
+                <!-- @FUNCTIONALITY: This should implement an interactive D3.js or similar graph showing AI topics as connected nodes -->
+                <div class="relative h-96 bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg border border-gray-200 overflow-hidden" data-implementation="Implement D3.js knowledge graph with interactive nodes">
+                    
+                    <!-- Mock Graph Representation -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="relative w-full h-full">
+                            
+                            <!-- Central Node - Current Topic -->
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg animate-pulse">
+                                NN
+                            </div>
+                            
+                            <!-- Completed Nodes -->
+                            <div class="absolute top-1/4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center text-white text-sm font-medium shadow-md">
+                                ML
+                            </div>
+                            
+                            <div class="absolute top-1/3 left-3/4 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center text-white text-sm font-medium shadow-md">
+                                DL
+                            </div>
+                            
+                            <div class="absolute bottom-1/4 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-secondary-500 rounded-full flex items-center justify-center text-white text-sm font-medium shadow-md">
+                                PY
+                            </div>
+                            
+                            <!-- Future Nodes -->
+                            <div class="absolute top-1/6 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs font-medium">
+                                CNN
+                            </div>
+                            
+                            <div class="absolute bottom-1/6 right-1/4 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs font-medium">
+                                NLP
+                            </div>
+                            
+                            <div class="absolute top-2/3 right-1/6 transform -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-600 text-xs font-medium">
+                                RL
+                            </div>
+                            
+                            <!-- Connection Lines (simplified) -->
+                            <svg class="absolute inset-0 w-full h-full pointer-events-none">
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                                        refX="9" refY="3.5" orient="auto">
+                                        <polygon points="0 0, 10 3.5, 0 7" fill="#9CA3AF" />
+                                    </marker>
+                                </defs>
+                                <!-- Example connections -->
+                                <line x1="25%" y1="25%" x2="50%" y2="50%" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                <line x1="75%" y1="33%" x2="50%" y2="50%" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                <line x1="33%" y1="75%" x2="50%" y2="50%" stroke="#9CA3AF" stroke-width="2" marker-end="url(#arrowhead)"/>
+                                <line x1="50%" y1="50%" x2="50%" y2="16%" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="5,5"/>
+                                <line x1="50%" y1="50%" x2="75%" y2="84%" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="5,5"/>
+                                <line x1="50%" y1="50%" x2="84%" y2="67%" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="5,5"/>
+                            </svg>
+                            
+                            <!-- Legend -->
+                            <div class="absolute bottom-4 left-4 bg-white p-3 rounded-lg shadow-sm border border-gray-200">
+                                <div class="text-xs font-medium text-gray-900 mb-2">Progress Legend</div>
+                                <div class="space-y-2">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-secondary-500 rounded-full"></div>
+                                        <span class="text-xs text-gray-600">Completed</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-primary-500 rounded-full"></div>
+                                        <span class="text-xs text-gray-600">Current</span>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-3 h-3 bg-gray-300 rounded-full"></div>
+                                        <span class="text-xs text-gray-600">Upcoming</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Interactive Info Panel -->
+                            <div class="absolute top-4 right-4 bg-white p-4 rounded-lg shadow-sm border border-gray-200 max-w-xs" data-mock="true">
+                                <h4 class="font-medium text-gray-900 mb-2">Neural Networks</h4>
+                                <p class="text-sm text-gray-600 mb-3">The foundation of deep learning systems, inspired by biological neural networks.</p>
+                                <div class="flex items-center justify-between text-xs text-gray-500">
+                                    <span>Progress: 73%</span>
+                                    <span>4 of 6 lessons</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Graph Controls -->
+                <div class="mt-4 flex items-center justify-between">
+                    <div class="flex items-center space-x-4 text-sm text-gray-600">
+                        <span data-bind="graph.totalNodes">23 topics total</span>
+                        <span data-bind="graph.completedNodes">8 completed</span>
+                        <span data-bind="graph.progressPercentage">35% overall progress</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="p-2 text-gray-600 hover:bg-gray-100 rounded">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <span class="text-sm text-gray-600">100%</span>
+                        <button class="p-2 text-gray-600 hover:bg-gray-100 rounded">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- @END_COMPONENT: Interactive Knowledge Graph Section -->
+
+        <!-- @COMPONENT: Quick Actions & Recent Activity -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Quick Actions -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <h3 class="font-bold text-gray-900 mb-4">Quick Actions</h3>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <button class="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-12 h-12 bg-primary-100 rounded-xl flex items-center justify-center mb-3">
+                            <i class="fas fa-code text-primary-500 text-lg"></i>
+                        </div>
+                        <span class="font-medium text-gray-900 text-sm">Open Sandbox</span>
+                        <span class="text-xs text-gray-600 mt-1">Code & experiment</span>
+                    </button>
+                    
+                    <button class="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-12 h-12 bg-secondary-100 rounded-xl flex items-center justify-center mb-3">
+                            <i class="fas fa-tasks text-secondary-500 text-lg"></i>
+                        </div>
+                        <span class="font-medium text-gray-900 text-sm">Start Project</span>
+                        <span class="text-xs text-gray-600 mt-1">Build something real</span>
+                    </button>
+                    
+                    <button class="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-3">
+                            <i class="fas fa-users text-purple-500 text-lg"></i>
+                        </div>
+                        <span class="font-medium text-gray-900 text-sm">Join Discussion</span>
+                        <span class="text-xs text-gray-600 mt-1">Connect with peers</span>
+                    </button>
+                    
+                    <button class="flex flex-col items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center mb-3">
+                            <i class="fas fa-trophy text-amber-500 text-lg"></i>
+                        </div>
+                        <span class="font-medium text-gray-900 text-sm">Take Challenge</span>
+                        <span class="text-xs text-gray-600 mt-1">Test your skills</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+                <h3 class="font-bold text-gray-900 mb-4">Recent Activity</h3>
+                
+                <div class="space-y-4">
+                    <!-- @MAP: recentActivities.map(activity => ( -->
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 bg-secondary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-check text-secondary-600 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm text-gray-900" data-bind="activity.description" data-mock="true">Completed "Introduction to Neural Networks"</p>
+                            <p class="text-xs text-gray-600" data-bind="activity.timestamp" data-mock="true">2 hours ago</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-code text-primary-600 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm text-gray-900" data-bind="activity.description" data-mock="true">Submitted project "Image Classifier"</p>
+                            <p class="text-xs text-gray-600" data-bind="activity.timestamp" data-mock="true">Yesterday</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-trophy text-amber-600 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm text-gray-900" data-bind="activity.description" data-mock="true">Earned "Deep Learning Pioneer" badge</p>
+                            <p class="text-xs text-gray-600" data-bind="activity.timestamp" data-mock="true">3 days ago</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-comments text-purple-600 text-sm"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-sm text-gray-900" data-bind="activity.description" data-mock="true">Posted in "Machine Learning Basics" forum</p>
+                            <p class="text-xs text-gray-600" data-bind="activity.timestamp" data-mock="true">1 week ago</p>
+                        </div>
+                    </div>
+                    <!-- @END_MAP )) -->
+                    
+                    <div class="pt-3 border-t border-gray-100">
+                        <a href="#" class="text-sm text-primary-500 hover:text-primary-600">View all activity</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <!-- @END_COMPONENT: Quick Actions & Recent Activity -->
+
+    </main>
+</div>
+
+<!-- @COMPONENT: AI Tutor Chat Overlay (Hidden by default) -->
+<div id="aiTutorChat" class="fixed bottom-6 right-6 w-80 h-96 bg-white rounded-xl shadow-2xl border border-gray-200 z-50 hidden" data-implementation="Toggle visibility with JavaScript">
+    <div class="flex items-center justify-between p-4 border-b border-gray-200">
+        <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center">
+                <i class="fas fa-robot text-white text-sm"></i>
+            </div>
+            <div>
+                <h3 class="font-medium text-gray-900">AI Tutor</h3>
+                <div class="flex items-center">
+                    <div class="w-2 h-2 bg-secondary-500 rounded-full mr-2"></div>
+                    <span class="text-xs text-gray-600">Online</span>
+                </div>
+            </div>
+        </div>
+        <button class="text-gray-400 hover:text-gray-600" onclick="document.getElementById('aiTutorChat').classList.add('hidden')">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    
+    <div class="h-64 p-4 overflow-y-auto" data-implementation="Implement chat message history and scrolling">
+        <div class="space-y-3" data-mock="true">
+            <div class="flex items-start space-x-2">
+                <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-robot text-primary-500 text-xs"></i>
+                </div>
+                <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+                    <p class="text-sm text-gray-700">Hi! I'm here to help you with any AI concepts you're struggling with. What would you like to know?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="p-4 border-t border-gray-200">
+        <div class="flex space-x-2">
+            <input type="text" placeholder="Ask me anything..." class="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm" data-implementation="Connect to AI chat API">
+            <button class="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 text-sm">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<!-- @END_COMPONENT: AI Tutor Chat Overlay -->
+
+<!-- @COMPONENT: Floating Chat Button -->
+<button 
+    id="openChatBtn"
+    onclick="document.getElementById('aiTutorChat').classList.remove('hidden')"
+    class="fixed bottom-6 right-6 w-14 h-14 bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 flex items-center justify-center z-40 transition-transform hover:scale-110">
+    <i class="fas fa-comments text-lg"></i>
+</button>
+<!-- @END_COMPONENT: Floating Chat Button -->
+
+<!-- @STATE: chatOpen:boolean = false -->
+<!-- @STATE: currentTopic:object = Neural Networks data -->
+<!-- @STATE: userProgress:object = progress tracking data -->
+<!-- @STATE: notifications:array = user notifications -->
+
+<script>
+    // TODO: Implement business logic for:
+    // - User authentication and session management
+    // - Progress tracking and persistence
+    // - AI tutor chat functionality
+    // - Knowledge graph interactivity
+    // - Real-time notifications
+    // - API integrations for content delivery
+
+    (function() {
+        // Simple interaction handlers for demo purposes
+        const chatButton = document.getElementById('openChatBtn');
+        const chatOverlay = document.getElementById('aiTutorChat');
+        
+        // Toggle chat visibility
+        function toggleChat() {
+            if (chatOverlay.classList.contains('hidden')) {
+                chatOverlay.classList.remove('hidden');
+                chatButton.style.display = 'none';
+            } else {
+                chatOverlay.classList.add('hidden');
+                chatButton.style.display = 'flex';
+            }
+        }
+        
+        // Simple progress animation (demo only)
+        const progressBars = document.querySelectorAll('[style*="width"]');
+        progressBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0%';
+            setTimeout(() => {
+                bar.style.transition = 'width 1s ease-in-out';
+                bar.style.width = width;
+            }, 500);
+        });
+        
+        // Mock knowledge graph node hover effects
+        const graphContainer = document.querySelector('[data-implementation*="D3.js"]');
+        if (graphContainer) {
+            graphContainer.addEventListener('mouseover', function(e) {
+                // Add hover effects to mock nodes
+                if (e.target.classList && e.target.classList.contains('rounded-full')) {
+                    e.target.style.transform = 'scale(1.1)';
+                }
+            });
+            
+            graphContainer.addEventListener('mouseout', function(e) {
+                if (e.target.classList && e.target.classList.contains('rounded-full')) {
+                    e.target.style.transform = 'scale(1)';
+                }
+            });
+        }
+    })();
+</script>
+
+</body>
+</html>

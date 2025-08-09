@@ -1,0 +1,35 @@
+{
+  "projects": [
+    {
+      "id": "movie-recommender",
+      "title": "Build a Movie Recommendation Engine",
+      "description": "Collaborative filtering baseline using implicit feedback and matrix factorization.",
+      "templateRepo": "https://github.com/example/movie-recommender-template",
+      "tests": [
+        "train.py runs",
+        "sample predictions within expected range"
+      ],
+      "difficulty": "intermediate"
+    },
+    {
+      "id": "spam-classifier",
+      "title": "Email Spam Classifier",
+      "description": "Binary classifier using scikit-learn and feature extraction with TF-IDF.",
+      "templateRepo": "https://github.com/example/spam-classifier-template",
+      "tests": [
+        "accuracy > 0.85 on test set"
+      ],
+      "difficulty": "beginner"
+    },
+    {
+      "id": "digit-recognizer",
+      "title": "Handwritten Digit Recognizer",
+      "description": "Train a CNN on MNIST and export model for inference.",
+      "templateRepo": "https://github.com/example/digit-recognizer-template",
+      "tests": [
+        "test accuracy > 0.98"
+      ],
+      "difficulty": "beginner"
+    }
+  ]
+}
